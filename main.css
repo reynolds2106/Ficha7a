@@ -26,6 +26,17 @@ body {
   line-height: 1.6;
 }
 
+.container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 80vh min-content 40vw (min-content)[3];
+      grid-template-rows: 80vh -webkit-min-content 40vw repeat(3, -webkit-min-content);
+      grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+  -ms-grid-columns: (minmax(min-content, 14rem))[8];
+      grid-template-columns: repeat(8, minmax(-webkit-min-content, 14rem));
+      grid-template-columns: repeat(8, minmax(min-content, 14rem));
+}
+
 .sidebar {
   background-color: #009E74;
 }
