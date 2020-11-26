@@ -1,0 +1,20 @@
+.empreendedores{
+    background-color: $color-secondary;
+}
+
+.features{
+}
+
+.story{
+    &_pictures{
+        background-color: $color-primary;
+    }
+    &_content{
+        background-color: $color-grey-light-1;
+    }
+}
+
+.projetos{}
+.gallery{
+    background-color: $color-grey-light-1;
+}
