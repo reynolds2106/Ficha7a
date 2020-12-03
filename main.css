@@ -32,36 +32,96 @@ body {
   -ms-grid-rows: 80vh min-content 40vw (min-content)[3];
       grid-template-rows: 80vh -webkit-min-content 40vw repeat(3, -webkit-min-content);
       grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
-  -ms-grid-columns: (minmax(min-content, 14rem))[8];
-      grid-template-columns: repeat(8, minmax(-webkit-min-content, 14rem));
-      grid-template-columns: repeat(8, minmax(min-content, 14rem));
+  -ms-grid-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] ([col-start] minmax(min-content, 14rem) [col-end])[8] [center-end] minmax(6rem, 1fr) [full-end];
+      grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(-webkit-min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+      grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
 }
 
 .sidebar {
   background-color: #009E74;
+  grid-column: sidebar-start / sidebar-end;
+  grid-row: 1 / -1;
 }
 
 .header {
   background-color: #007460;
+  grid-column: full-start / col-end 6;
 }
 
 .footer {
   background-color: #101d3c;
+  grid-column: full-start / full-end;
+  padding: 8rem;
+}
+
+.nav {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
+  gap: 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style: none;
+}
+
+.nav__link:link, .nav__link:visited {
+  display: block;
+  padding: 1.5rem;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Josefin Sans", "sans-serif";
+  font-size: 1.4rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav__link:hover, .nav__link:active {
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
+  background-color: white;
+}
+
+.copyright {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 6rem;
+  font-size: 1.4rem;
+  color: #aaa;
 }
 
 .empreendedores {
   background-color: #101d3c;
+  grid-column: col-start 7 / full-end;
+}
+
+.features {
+  grid-column: center-start / center-end;
 }
 
 .story_pictures {
   background-color: #009E74;
+  grid-column: center-start / col-end 4;
 }
 
 .story_content {
   background-color: #f9f7f6;
+  grid-column: col-start 5 / full-end;
+}
+
+.projetos {
+  grid-column: center-start / center-end;
 }
 
 .gallery {
   background-color: #f9f7f6;
+  grid-column: full-start / full-end;
 }
 /*# sourceMappingURL=main.css.map */
